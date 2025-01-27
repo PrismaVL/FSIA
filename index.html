@@ -6,19 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Contact Us - Prisma</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
-        <script src="script.js"></script>
+        <script> <!--script-->
+            window.onload = () => {
+                document.querySelector('form').onsubmit = (event) => {
+                    if (!document.getElementById('fullname').value || 
+                        !document.getElementById('email').value || 
+                        !document.getElementById('comment').value) {
+                        alert('Please fill in all fields');
+                        event.preventDefault();
+                    } else {
+                        alert('Sent Successfully');
+                    }
+                };
+            };
+        </script> <!--script-->
     </head>
     <body>
         <div class="container"><!--all-->
                 <h2>CONTACT US</h2>
                 <div class="content"> <!--left-->
-                    <form action="/submit-form" method="post">
-                        <input type="text" id="fullname" placeholder="Fullname" required>
-
-                        <input type="email" id="email" placeholder="Email" required>
-
-                        <textarea id="comments" class="comments" placeholder="Enter comments" required></textarea>
-
+                    <form>
+                        <input type="text" id="fullname" placeholder="Fullname">
+                        <input type="text" id="email" placeholder="Email">
+                        <textarea id="comment" class="comment" placeholder="Enter comments"></textarea>
                         <button class="submit" type="submit">Submit</button>
                     </form>
                 </div> <!--left-->
